@@ -15,7 +15,7 @@ See HOWTO for the initial setup (TODO insert URL here)
 ```
 cargo build --target aarch64-linux-android --release
 cp target/aarch64-linux-android/release/*.so app/src/main/jniLibs/arm64-v8a/
-gradle assembleDebug
+./gradlew assembleDebug
 cp app/build/outputs/apk/debug/app-debug.apk /sdcard/Download/
 ```
 

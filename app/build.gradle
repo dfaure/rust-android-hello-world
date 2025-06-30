@@ -16,7 +16,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "fr.davidfaure.rust-android-hello-world"
+        applicationId = "fr.davidfaure.rustandroidhelloworld"
         minSdk = 28
         targetSdk = 31
         versionCode = 1
@@ -39,8 +39,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     namespace = 'fr.davidfaure.RAHW'
 }
