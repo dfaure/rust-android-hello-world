@@ -1,11 +1,11 @@
 Hello world in Rust, for Android
 
-This is a minimal test application based on `NativeActivity` that just
-outputs a line into a file (see below why it does that instead of log!).
-
 30 June 2024, south of France, it's too hot to turn on a PC,
 I want to do some Rust hacking directly on my Android tablet.
 How hard can it be?
+
+Here is a minimal test application based on `NativeActivity` that just
+outputs a line into a file (see below why it does that instead of log!).
 
 # Gradle Build on an Android device
 
@@ -23,7 +23,7 @@ pkg install openjdk-17 gradle android-tools
 
 ## Install cmdline-tools
 
-First, open [https://developer.android.com/studio](dhttps://developer.android.com/studio) and scroll down to command line tools to find the last release and update the version number into the URL below.
+First, open [https://developer.android.com/studio](https://developer.android.com/studio) and scroll down to command line tools to find the last release and update the version number into the URL below.
 
 ```
 curl -L https://dl.google.com/android/repository/commandlinetools-linux-13114758_latest.zip -o commandlinetools-linux-latest.zip
@@ -74,18 +74,8 @@ echo "android.aapt2FromMavenOverride=$ANDROID_HOME/build-tools/latest/aapt2" >> 
 ```
 keytool -genkey -v -keystore $HOME/debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000
 ```
-Then edit `app/build.gradle` (NOT the toplevel one!) and add inside the android section:
-```
- signingConfigs {
-        debug {
-            storeFile = file("/data/data/com.termux/files/home/debug.keystore")
-            storePassword = "android"
-            keyAlias = "androiddebugkey"
-            keyPassword = "android"
-        }
-    }
-```
-and in the debug section, add `signingConfig signingConfigs.debug`.
+
+The file `rust-android-hello-world/app/build.gradle` defines a `signingConfigs` section that points to that `debug.keystore` file.
 
 ## Building on Android
 
