@@ -1,6 +1,6 @@
 Hello world in Rust, for Android
 
-30 June 2024, south of France, it's too hot to turn on a PC,
+30 June 2025, south of France, it's too hot to turn on a PC,
 I want to do some Rust hacking directly on my Android tablet.
 How hard can it be?
 
