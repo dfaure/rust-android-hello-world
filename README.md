@@ -86,7 +86,7 @@ cd rust-android-hello-world
 cargo build --target aarch64-linux-android --release
 cp target/aarch64-linux-android/release/*.so app/src/main/jniLibs/arm64-v8a/
 ./gradlew assembleDebug
-cp app/build/outputs/apk/debug/app-debug.apk /sdcard/Download/
+cp app/build/outputs/apk/debug/*.apk /sdcard/Download/
 ```
 
 Tip: create an alias for those last 4 commands separated by `&&`.
