@@ -7,11 +7,8 @@ edition = "2021"
 
 [dependencies]
 log = "0.4"
-android_logger = "0.13"
 android-activity = { version = "0.4", features = [ "native-activity" ] }
 slint = { version = "1.12", features = ["backend-android-activity-06"] }
-ndk-sys = "0.4"
-ndk = "0.7"
 flexi_logger = "0.31.2"
 
 [build-dependencies]
