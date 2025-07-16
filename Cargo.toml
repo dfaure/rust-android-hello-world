@@ -9,13 +9,18 @@ edition = "2021"
 log = "0.4"
 android_logger = "0.13"
 android-activity = { version = "0.4", features = [ "native-activity" ] }
-#android-activity = { path = "../../android-activity/android-activity", features = [ "native-activity" ] }
+slint = { version = "1.12", features = ["backend-android-activity-06"] }
 ndk-sys = "0.4"
 ndk = "0.7"
-chrono = "0.4"
+flexi_logger = "0.31.2"
+
+[build-dependencies]
+slint-build = "1.12.1"
 
 [lib]
-crate-type=["cdylib"]
+# Build as cdylib for Android
+# and as rlib for the executable to link to, on other platforms
+crate-type=["cdylib", "rlib"]
 
 
 ####################

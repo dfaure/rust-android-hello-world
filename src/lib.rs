@@ -1,13 +1,23 @@
-use android_activity::AndroidApp;
+use std::error::Error;
 
-mod simple_log;
+slint::include_modules!();
 
+#[cfg(target_os = "android")]
 #[no_mangle]
-fn android_main(_app: AndroidApp) {
-    log!("Rust Android Hello World");
+fn android_main(app: slint::android::AndroidApp) -> Result<(), Box<dyn Error>> {
+    // Log to file, on Android
+    flexi_logger::Logger::with(flexi_logger::LevelFilter::Info)
+        .log_to_file(flexi_logger::FileSpec::try_from("/sdcard/Download/hello_logs.txt")?)
+    .start()?;
 
-    std::process::exit(0);
-    //loop {
-    //    std::thread::sleep(std::time::Duration::from_secs(1));
-    //}
+    slint::android::init(app).unwrap();
+    log::info!("slint::android initialized");
+    real_main()
+}
+
+pub fn real_main() -> Result<(), Box<dyn Error>> {
+    log::info!("Rust Android Hello World");
+    let ui = AppWindow::new()?;
+    ui.run()?;
+    Ok(())
 }
