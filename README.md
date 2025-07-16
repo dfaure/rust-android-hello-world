@@ -5,7 +5,9 @@ I want to do some Rust hacking directly on my Android tablet.
 How hard can it be?
 
 Here is a minimal test application based on `NativeActivity` that just
-outputs a line into a file (see below why it does that instead of log!).
+outputs a line into a file.
+
+If you intend to use [SlintUI](https://github.com/slint-ui/slint) for the user interface, check out the branch `with-slint`.
 
 # Gradle Build on an Android device
 
