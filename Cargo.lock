@@ -395,8 +395,6 @@ dependencies = [
  "android-activity",
  "flexi_logger",
  "log",
- "ndk",
- "ndk-sys",
 ]
 
 [[package]]
