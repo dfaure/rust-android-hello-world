@@ -7,16 +7,16 @@ edition = "2021"
 
 [dependencies]
 log = "0.4"
-android_logger = "0.13"
 android-activity = { version = "0.4", features = [ "native-activity" ] }
-#android-activity = { path = "../../android-activity/android-activity", features = [ "native-activity" ] }
 ndk-sys = "0.4"
 ndk = "0.7"
-chrono = "0.4"
+flexi_logger = "0.31.2"
 
 [lib]
-crate-type=["cdylib"]
-
+# https://github.com/rust-lang/cargo/issues/12260#issuecomment-2225216175 says this might create trouble on Windows...
+# cdylib = Build as a C-compatible dynamic library for Android
+# rlib = Build a Rust library for the desktop build
+crate-type = ["cdylib", "rlib"]
 
 ####################
 # cargo apk config #

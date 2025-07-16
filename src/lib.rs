@@ -1,13 +1,18 @@
 use android_activity::AndroidApp;
-
-mod simple_log;
+use std::error::Error;
 
 #[no_mangle]
-fn android_main(_app: AndroidApp) {
-    log!("Rust Android Hello World");
+fn android_main(_app: AndroidApp) -> Result<(), Box<dyn Error>> {
+    flexi_logger::Logger::with(flexi_logger::LevelFilter::Info)
+        .log_to_file(flexi_logger::FileSpec::try_from("/sdcard/Download/hello_logs.txt")?)
+        .start()?;
+
+    real_main()
+}
+
+pub fn real_main() -> Result<(), Box<dyn Error>> {
+    log::info!("Rust Android Hello World");
 
     std::process::exit(0);
-    //loop {
-    //    std::thread::sleep(std::time::Duration::from_secs(1));
-    //}
+    //Ok(())
 }
