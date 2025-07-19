@@ -1,8 +1,8 @@
-use android_activity::AndroidApp;
 use std::error::Error;
 
+#[cfg(target_os = "android")]
 #[no_mangle]
-fn android_main(_app: AndroidApp) -> Result<(), Box<dyn Error>> {
+fn android_main(_app: android_activity::AndroidApp) -> Result<(), Box<dyn Error>> {
     flexi_logger::Logger::with(flexi_logger::LevelFilter::Info)
         .log_to_file(flexi_logger::FileSpec::try_from("/sdcard/Download/hello_logs.txt")?)
         .start()?;

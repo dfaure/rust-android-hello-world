@@ -7,8 +7,9 @@ edition = "2021"
 
 [dependencies]
 log = "0.4"
-android-activity = { version = "0.4", features = [ "native-activity" ] }
 flexi_logger = "0.31.2"
+[target.'cfg(target_os = "android")'.dependencies]
+android-activity = { version = "0.4", features = [ "native-activity" ] }
 
 [lib]
 # https://github.com/rust-lang/cargo/issues/12260#issuecomment-2225216175 says this might create trouble on Windows...
