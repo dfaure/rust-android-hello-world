@@ -187,3 +187,9 @@ label = "Application Name"
 #path = "/rust-windowing/android-ndk-rs/tree/master/cargo-apk"
 #path_prefix = "/rust-windowing/"
 #mime_type = "image/jpeg"
+
+[patch.crates-io]
+i-slint-compiler = { path = "../local-crates/slint/internal/compiler" }
+i-slint-core = { path = "../local-crates/slint/internal/core" }
+vtable = { path = "../local-crates/slint/helper_crates/vtable" }
+vtable-macro = { path = "../local-crates/slint/helper_crates/vtable/macro" }
