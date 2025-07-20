@@ -1,0 +1,32 @@
+import { Palette, VerticalBox } from "std-widgets.slint";
+
+export component DetailsWindow inherits PopupWindow {
+
+    in property<string> film-name;
+
+    // PopupWindow is transparent by default!
+    Rectangle {
+        x: 5px;
+        y: 5px;
+        height: root.height - 10px;
+        width: root.width - 10px;
+        background: white; // Palette.background;
+        border-width: 1px;
+        border-color: black;
+
+        VerticalBox {
+
+            Text {
+                text: "DETAILS WINDOW";
+            }
+            Text {
+                text: "All the texts here should be as big as those in the main window";
+            }
+            Text {
+                text: root.film-name;
+            }
+
+        }
+
+    }
+}

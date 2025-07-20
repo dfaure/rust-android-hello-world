@@ -1,42 +1,29 @@
 import { Button, HorizontalBox, VerticalBox, TextEdit, LineEdit } from "std-widgets.slint";
+import { DetailsWindow } from "details-window.slint";
 
 export component AppWindow inherits Window {
     default-font-size: 20px;
+    property <string> clicked-film-name;
     VerticalBox {
         Text {
             text: "This is a test app using " + Platform.style-name;
         }
         LineEdit {
-            placeholder-text: "Enter search term";
-            text: "Test";
-            input-type: search;
-            accepted(txt) => { lineEdit.text = "Searching for" + txt; }
-        }
-        HorizontalBox {
-            Text {
-                text: "Some text here to test lineEdits with lack of room";
+            text: "Press Enter in this field";
+            accepted(txt) => { 
+                root.clicked-film-name = "Selected film";
+                detailsWindow.show();
             }
-            lineEdit := LineEdit {
-                placeholder-text: "This is a long placeholder";
-                text: "Hello world with Slint";
-            }
-        }
-        LineEdit {
-            text: "password";
-            input-type: password;
-        }
-        LineEdit {
-            text: "1234";
-            input-type: number;
-        }
-        LineEdit {
-            text: "12.34";
-            input-type: decimal;
         }
 
         TextEdit {
             font-size: 14px;
-            text: "Lorem ipsum dolor sit amet,\n consectetur adipisici elit";
+            text: "";
         }
+    }
+    detailsWindow := DetailsWindow {
+        film-name: root.clicked-film-name;
+        visible: false;
+        width: root.width;                                                                                      height: root.height;
     }
 }
