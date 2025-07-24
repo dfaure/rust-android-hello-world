@@ -21,6 +21,14 @@ slint-build = "1.12.1"
 # and as rlib for the executable to link to, on other platforms
 crate-type=["cdylib", "rlib"]
 
+[[bin]]
+name = "rust-android-hello-world"
+path = "src/bin/main.rs"                                                                                                          # This allows to skip building the binary on Android (it builds, but it's useless and very slow to build)
+required-features = ["with-binary"]
+
+[features]
+default = ["with-binary"]
+with-binary = []
 
 ####################
 # cargo apk config #
@@ -188,8 +196,8 @@ label = "Application Name"
 #path_prefix = "/rust-windowing/"
 #mime_type = "image/jpeg"
 
-[patch.crates-io]
-i-slint-compiler = { path = "../local-crates/slint/internal/compiler" }
-i-slint-core = { path = "../local-crates/slint/internal/core" }
-vtable = { path = "../local-crates/slint/helper_crates/vtable" }
-vtable-macro = { path = "../local-crates/slint/helper_crates/vtable/macro" }
+#[patch.crates-io]
+#i-slint-compiler = { path = "../local-crates/slint/internal/compiler" }
+#i-slint-core = { path = "../local-crates/slint/internal/core" }
+#vtable = { path = "../local-crates/slint/helper_crates/vtable" }
+#vtable-macro = { path = "../local-crates/slint/helper_crates/vtable/macro" }
