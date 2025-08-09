@@ -21,6 +21,15 @@ slint-build = "1.12.1"
 # and as rlib for the executable to link to, on other platforms
 crate-type=["cdylib", "rlib"]
 
+[[bin]]
+name = "rust-android-hello-world"
+path = "src/bin/main.rs"
+# This allows to skip building the binary on Android (it builds, but it's useless and very slow to build)
+required-features = ["with-binary"]
+
+[features]
+default = ["with-binary"]
+with-binary = []
 
 ####################
 # cargo apk config #
