@@ -9,6 +9,8 @@ edition = "2021"
 log = "0.4"
 slint = { version = "1.12", features = ["backend-android-activity-06"] }
 flexi_logger = "0.31.2"
+reqwest = "0.12.22"
+async-compat = "0.2.4"
 
 [target.'cfg(target_os = "android")'.dependencies]
 android-activity = { version = "0.4", features = [ "native-activity" ] }
