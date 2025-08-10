@@ -12,7 +12,7 @@ fn android_main(app: slint::android::AndroidApp) -> Result<(), Box<dyn Error>> {
 
     slint::android::init(app).unwrap();
     log::info!("slint::android initialized");
-    real_main();
+    real_main()?;
 
     // When we get here, exit process so Android restarts fresh next time
     std::process::exit(0);
